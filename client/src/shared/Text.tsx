@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from "react";
 import { useTranslation } from "react-i18next";
 import "../i18n/i18n";
-import { profileName } from "./profile";
 import type { Language, Profile } from "./profile";
+import { profileName } from "./profile";
 
 type TextProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
   htmlFor?: string;
@@ -12,7 +12,7 @@ type TextProps = Omit<HTMLAttributes<HTMLElement>, "children"> & {
   count?: number;
 };
 
-export function Text({
+export function Translated({
   as: Tag = "span",
   i18nKey,
   values,
