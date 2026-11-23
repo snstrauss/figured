@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { useProfilesStore } from "./features/profiles/useProfilesStore";
+import { NewProfileDialog } from "../profiles/NewProfileDialog/NewProfileDialog";
+import { ProfilesContent } from "../profiles/ProfilesContent";
+import { ProfilesErrorNotice } from "../profiles/ProfilesErrorNotice";
+import { useProfilesStore } from "../profiles/useProfilesStore";
 import { AppHeader } from "./AppHeader";
-import { ProfilesContent } from "./features/profiles/ProfilesContent";
-import { ProfilesErrorNotice } from "./features/profiles/ProfilesErrorNotice";
-import { NewProfileDialog } from "./features/profiles/NewProfileDialog/NewProfileDialog";
 
 export function App() {
   const { selectedProfile, loading, error, loadProfiles, selectProfile } =

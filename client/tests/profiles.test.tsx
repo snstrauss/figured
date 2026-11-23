@@ -4,7 +4,7 @@ import { beforeEach, afterEach, expect, test, vi } from "vitest";
 import { act, cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useProfilesStore } from "../src/features/profiles/useProfilesStore";
-import { App } from "../src/App";
+import { App } from "../src/features/app/App";
 import type { Profile } from "../src/shared/profile";
 
 const profile: Profile = {
@@ -43,6 +43,7 @@ const profile: Profile = {
 };
 
 beforeEach(async () => {
+  localStorage.clear();
   await i18n.changeLanguage("he");
   useProfilesStore.setState(useProfilesStore.getInitialState(), true);
 });
@@ -205,6 +206,7 @@ test("language switch updates the app, open dialog, and document direction", asy
   expect(screen.getByLabelText<HTMLInputElement>("Profile name").value).toBe(
     "אישי",
   );
+  expect(localStorage.getItem("figured.locale")).toBe("en");
   expect(document.documentElement.lang).toBe("en");
   expect(document.documentElement.dir).toBe("ltr");
   await user.click(screen.getByRole("button", { name: "עברית" }));
@@ -214,6 +216,7 @@ test("language switch updates the app, open dialog, and document direction", asy
   expect(screen.getByLabelText<HTMLInputElement>("שם הפרופיל").value).toBe(
     "אישי",
   );
+  expect(localStorage.getItem("figured.locale")).toBe("he");
   expect(document.documentElement.lang).toBe("he");
   expect(document.documentElement.dir).toBe("rtl");
 });
