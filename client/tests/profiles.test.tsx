@@ -5,13 +5,15 @@ import { act, cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useProfilesStore } from "../src/features/profiles/useProfilesStore";
 import { App } from "../src/features/app/App";
-import type { Profile } from "../src/shared/profile";
+import type { Catalog, Profile } from "../src/shared/profile";
 
 const profile: Profile = {
   id: "personal",
   name: "אישי",
-  formatVersion: 1,
-  revision: 0,
+  symptoms: {},
+};
+
+const catalog: Catalog = {
   categories: [
     {
       id: "category-01",
@@ -25,9 +27,6 @@ const profile: Profile = {
       id: "symptom-001",
       name: "symptoms.symptom-001.name",
       generalDescription: "",
-      personalExperience: "",
-      impactRating: null,
-      archived: false,
     },
   ],
   translations: {
@@ -36,11 +35,17 @@ const profile: Profile = {
       symptoms: { "symptom-001": { name: "שיתוק משימתי" } },
     },
     en: {
-      categories: {},
+      categories: { "category-01": { name: "Executive functions" } },
       symptoms: { "symptom-001": { name: "Task Paralysis" } },
     },
   },
 };
+
+function mockApi(handler: (path: string, options?: RequestInit) => Promise<Response>) {
+  vi.stubGlobal("fetch", (path: string, options?: RequestInit) =>
+    path === "/api/catalog" ? Promise.resolve(Response.json(catalog)) : handler(path, options),
+  );
+}
 
 beforeEach(async () => {
   localStorage.clear();
@@ -55,8 +60,7 @@ afterEach(() => {
 
 test("a listed profile opens its category tree and logout returns to the chooser", async () => {
   const user = userEvent.setup();
-  vi.stubGlobal(
-    "fetch",
+  mockApi(
     vi.fn(async (path: string) =>
       Response.json(
         path === "/api/profiles"
@@ -78,10 +82,12 @@ test("a listed profile opens its category tree and logout returns to the chooser
   expect(screen.getByText("שיתוק משימתי").getAttribute("data-i18n-key")).toBe(
     "symptoms.symptom-001.name",
   );
-  expect(
-    screen.getByText("שיתוק משימתי").getAttribute("data-i18n-source"),
-  ).toBe("profile");
+  expect(screen.queryByText("Task Paralysis")).toBeNull();
+  await user.click(screen.getByRole("button", { name: "English" }));
+  expect(screen.getByText("Executive functions")).toBeTruthy();
   expect(screen.getByText("Task Paralysis")).toBeTruthy();
+  expect(screen.queryByText("שיתוק משימתי")).toBeNull();
+  await user.click(screen.getByRole("button", { name: "עברית" }));
   await user.click(screen.getByRole("button", { name: "יציאה מהפרופיל" }));
   expect(
     await screen.findByRole("button", { name: "פתיחת הפרופיל אישי" }),
@@ -91,8 +97,7 @@ test("a listed profile opens its category tree and logout returns to the chooser
 test("a failed creation keeps the draft and a retry opens the created profile", async () => {
   const user = userEvent.setup();
   let attempts = 0;
-  vi.stubGlobal(
-    "fetch",
+  mockApi(
     vi.fn(async (_path: string, options?: RequestInit) => {
       if (options?.method !== "POST") return Response.json({ profiles: [] });
       attempts++;
@@ -187,8 +192,7 @@ test("submission disables controls and reopening clears the draft and error", as
 
 test("language switch updates the app, open dialog, and document direction", async () => {
   const user = userEvent.setup();
-  vi.stubGlobal(
-    "fetch",
+  mockApi(
     vi.fn(async () => Response.json({ profiles: [] })),
   );
   render(

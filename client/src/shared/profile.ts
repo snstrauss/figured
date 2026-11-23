@@ -22,9 +22,7 @@ export interface SymptomEntry {
   id: string;
   name: string;
   generalDescription: string;
-  personalExperience: string;
-  impactRating: number | null;
-  archived: boolean;
+
 }
 
 export interface NameDictionary {
@@ -37,19 +35,17 @@ export interface ProfileSummary {
   name: string;
 }
 
+export interface SymptomAssessment {
+  impactRating: number | null;
+  personalExamples: string[];
+}
+
 export interface Profile extends ProfileSummary {
-  formatVersion: number;
-  revision: number;
+  symptoms: Record<string, SymptomAssessment>;
+}
+
+export interface Catalog {
   categories: Category[];
   entries: SymptomEntry[];
   translations: Record<Language, NameDictionary>;
-}
-
-export function profileName(
-  profile: Profile,
-  language: Language,
-  path: string,
-): string {
-  const [group, id] = path.split(".");
-  return profile.translations[language][group as keyof NameDictionary][id].name;
 }

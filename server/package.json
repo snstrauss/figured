@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node src/startServer.mjs",
     "dev": "node --watch src/startServer.mjs",
-    "check": "node --check src/startServer.mjs && node --check src/http.mjs && node --check src/profiles.mjs",
+    "check": "node --check src/startServer.mjs && node --check src/http.mjs && node --check src/profiles.mjs && node --check src/catalog.mjs && node --check src/migrateProfiles.mjs",
     "test": "node --test"
   }
 }

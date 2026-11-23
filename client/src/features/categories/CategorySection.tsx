@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { ProfileText, Translated } from "../../shared/Text";
+import { Translated } from "../../shared/Text";
 import type {
   Category,
   ColorKey,
@@ -41,7 +41,6 @@ export function CategorySection({
   return (
     <details className={categoryVariants({ colorKey: category.colorKey })}>
       <CategoryHeading
-        profile={profile}
         category={category}
         count={entries.length}
       />
@@ -51,21 +50,19 @@ export function CategorySection({
 }
 
 type CategoryHeadingProps = {
-  profile: Profile;
   category: Category;
   count: number;
 };
 
-function CategoryHeading({ profile, category, count }: CategoryHeadingProps) {
+function CategoryHeading({ category, count }: CategoryHeadingProps) {
   return (
     <summary className="flex cursor-pointer list-none items-center gap-2 p-4 sm:gap-3 sm:px-6 sm:py-4">
       <span
         aria-hidden="true"
         className="h-4 w-2 shrink-0 rounded-sm border-2 border-current"
       />
-      <ProfileText
-        profile={profile}
-        language="he"
+      <Translated
+        namespace="catalog"
         i18nKey={category.name}
         className="flex-1 font-semibold"
       />

@@ -4,6 +4,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
 import { createApp } from '../src/http.mjs';
+import { createProfileStore } from '../src/profiles.mjs';
+import { migrateProfiles } from '../src/migrateProfiles.mjs';
 
 async function start(t, profilesDirectory) {
   const server = createApp({ profilesDirectory });
@@ -29,7 +31,7 @@ function createProfile(request, name) {
   });
 }
 
-test('a new profile can be listed and reopened with a complete independent base copy', async (t) => {
+test('a new profile stores only personal assessments and browses a shared translated catalog', async (t) => {
   const request = await start(t, await storage(t));
   assert.deepEqual(await (await request('/api/profiles')).json(), { profiles: [] });
 
@@ -38,14 +40,18 @@ test('a new profile can be listed and reopened with a complete independent base 
   const profile = await response.json();
   assert.equal(profile.name, 'אישי');
   assert.match(profile.id, /^[a-f\d-]{36}$/);
-  assert.equal(profile.formatVersion, 1);
-  assert.equal(profile.revision, 0);
-  assert.equal(profile.categories.length, 9);
-  assert.equal(profile.entries.length, 100);
-  assert.equal(profile.translations.he.symptoms['symptom-001'].name, 'שיתוק משימתי');
-  assert.equal(profile.translations.en.symptoms['symptom-001'].name, 'Task Paralysis');
-  assert.equal(profile.entries[0].name, 'symptoms.symptom-001.name');
-  assert.ok(profile.entries.every((entry) => entry.impactRating === null && entry.personalExperience === '' && !entry.archived));
+  assert.deepEqual(profile.symptoms, {});
+  assert.deepEqual(Object.keys(profile).sort(), ['id', 'name', 'symptoms']);
+  const catalog = await (await request('/api/catalog')).json();
+  assert.equal(catalog.categories.length, 9);
+  assert.equal(catalog.entries.length, 100);
+  for (const language of ['he', 'en']) {
+    for (const entry of [...catalog.categories, ...catalog.entries]) {
+      const [group, id] = entry.name.split('.');
+      assert.ok(catalog.translations[language][group][id].name);
+    }
+  }
+  assert.ok(catalog.entries.every((entry) => !('impactRating' in entry) && !('personalExperience' in entry)));
 
   const listing = await (await request('/api/profiles')).json();
   assert.equal(listing.profiles.length, 1);
@@ -81,7 +87,7 @@ test('malformed saved state is reported on list and load without replacing the f
   }
 });
 
-test('profiles and their copied translations survive restart independently', async (t) => {
+test('personal assessments survive restart independently of other profiles and the catalog', async (t) => {
   const directory = await storage(t);
   const baseFiles = ['data/symptoms-base.json', 'locales/he.json', 'locales/en.json'].map(file => new URL(`../../${file}`, import.meta.url));
   const original = await Promise.all(baseFiles.map((file) => readFile(file, 'utf8')));
@@ -91,9 +97,7 @@ test('profiles and their copied translations survive restart independently', asy
   assert.notEqual(first.id, second.id);
   assert.deepEqual((await readdir(directory)).sort(), [`${first.id}.json`, `${second.id}.json`].sort());
   // Seed an already-edited profile on disk; entry editing is a later ticket.
-  first.entries[0].personalExperience = 'הערה שנשמרה';
-  first.entries[0].impactRating = 4;
-  first.translations.he.symptoms['symptom-001'].name = 'השם שלי';
+  first.symptoms['symptom-001'] = { impactRating: 4, personalExamples: ['הערה שנשמרה', 'דוגמה נוספת'] };
   await writeFile(join(directory, `${first.id}.json`), JSON.stringify(first));
   await request.close();
   const restarted = await start(t, directory);
@@ -112,3 +116,31 @@ test('failed profile creation returns an error without claiming success', async 
   assert.deepEqual(await readdir(directory), ['file-not-directory']);
 });
 
+
+test('legacy conversion preserves ratings and examples and backs up the complete original once', async (t) => {
+  const directory = await storage(t);
+  const legacy = {
+    id: 'legacy', name: 'Personal', formatVersion: 1, revision: 3,
+    categories: [{ id: 'category-01', entryIds: ['symptom-001'] }],
+    entries: [
+      { id: 'symptom-001', impactRating: 4, personalExperience: 'My example', archived: true },
+      { id: 'symptom-002', impactRating: null, personalExperience: '', archived: false },
+    ],
+    translations: { he: { symptoms: { 'symptom-001': { name: 'Custom name' } } } },
+  };
+  const original = JSON.stringify(legacy);
+  await writeFile(join(directory, 'legacy.json'), original);
+  const store = createProfileStore(directory);
+  const fresh = await store.create('Fresh');
+  assert.equal(await migrateProfiles(directory), 1);
+  assert.equal(await readFile(join(directory, 'legacy.json.bak'), 'utf8'), original);
+  assert.deepEqual(await store.load('legacy'), {
+    id: 'legacy', name: 'Personal', symptoms: {
+      'symptom-001': { impactRating: 4, personalExamples: ['My example'] },
+      'symptom-002': { impactRating: null, personalExamples: [] },
+    },
+  });
+  assert.deepEqual(await store.load(fresh.id), fresh);
+  assert.equal(await migrateProfiles(directory), 0);
+  assert.equal(await readFile(join(directory, 'legacy.json.bak'), 'utf8'), original);
+});

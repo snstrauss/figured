@@ -1,10 +1,10 @@
-import type { Profile } from "../../../shared/profile";
+import type { Catalog, Profile } from "../../../shared/profile";
 import { Translated } from "../../../shared/Text";
 import { ProfileCategories } from "../../categories/ProfileCategories";
 
-type ProfileWorkspaceProps = { profile: Profile };
+type ProfileWorkspaceProps = { profile: Profile; catalog: Catalog };
 
-function ProfileWorkspaceHeader({ profile }: ProfileWorkspaceProps) {
+function ProfileWorkspaceHeader({ profile, catalog }: ProfileWorkspaceProps) {
   return (
     <section className="mb-8">
       <Translated as="p" className="eyebrow" i18nKey="workspace.eyebrow" />
@@ -15,8 +15,8 @@ function ProfileWorkspaceHeader({ profile }: ProfileWorkspaceProps) {
         <Translated
           i18nKey="workspace.summary"
           values={{
-            entries: profile.entries.filter((entry) => !entry.archived).length,
-            categories: profile.categories.length,
+            entries: catalog.entries.length,
+            categories: catalog.categories.length,
           }}
         />
       </p>
@@ -24,11 +24,11 @@ function ProfileWorkspaceHeader({ profile }: ProfileWorkspaceProps) {
   );
 }
 
-export function ProfileWorkspace({ profile }: ProfileWorkspaceProps) {
+export function ProfileWorkspace({ profile, catalog }: ProfileWorkspaceProps) {
   return (
     <>
-      <ProfileWorkspaceHeader profile={profile} />
-      <ProfileCategories profile={profile} />
+      <ProfileWorkspaceHeader profile={profile} catalog={catalog} />
+      <ProfileCategories profile={profile} catalog={catalog} />
     </>
   );
 }

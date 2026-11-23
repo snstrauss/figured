@@ -1,4 +1,4 @@
-import type { Profile, ProfileSummary } from "../../shared/profile";
+import type { Catalog, Profile, ProfileSummary } from "../../shared/profile";
 
 class ProfileApiError extends Error {
   constructor(public code: string) {
@@ -27,6 +27,7 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 }
 
 export const profilesApi = {
+  catalog: () => request<Catalog>("/api/catalog"),
   list: () => request<{ profiles: ProfileSummary[] }>("/api/profiles"),
   load: (id: string) => request<Profile>(`/api/profiles/${id}/state`),
   create: (name: string) =>

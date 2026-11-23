@@ -1,5 +1,33 @@
 {
-  "categories": {},
+  "categories": {
+    "category-01": {
+      "name": "Executive functions, motivation and task performance"
+    },
+    "category-02": {
+      "name": "Attention, concentration and stimuli"
+    },
+    "category-03": {
+      "name": "Time, memory and continuity"
+    },
+    "category-04": {
+      "name": "Emotional regulation and self-worth"
+    },
+    "category-05": {
+      "name": "Relationships and social behavior"
+    },
+    "category-06": {
+      "name": "Habits, impulsivity and addictions"
+    },
+    "category-07": {
+      "name": "Sleep, fatigue and energy"
+    },
+    "category-08": {
+      "name": "Sensory regulation, body and movement"
+    },
+    "category-09": {
+      "name": "Associated patterns and other reported conditions"
+    }
+  },
   "symptoms": {
     "symptom-001": {
       "name": "Task Paralysis"

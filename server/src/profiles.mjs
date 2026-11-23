@@ -1,9 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
-const root = fileURLToPath(new URL('../../', import.meta.url));
 export class ProfileError extends Error {
   constructor(status, code, message) {
     super(message);
@@ -38,12 +36,12 @@ export function createProfileStore(profilesDirectory) {
 
   async function create(name) {
     if (!name.trim()) throw new ProfileError(400, 'invalid_name', 'A profile name is required.');
-    const [base, he, en] = await Promise.all([
-      readFile(join(root, 'data/symptoms-base.json'), 'utf8').then(JSON.parse),
-      readFile(join(root, 'locales/he.json'), 'utf8').then(JSON.parse),
-      readFile(join(root, 'locales/en.json'), 'utf8').then(JSON.parse),
-    ]);
-    const profile = { id: randomUUID(), name: name.trim(), formatVersion: 1, revision: 0, ...base, translations: { he, en } };
+    const profile = { id: randomUUID(), name: name.trim(), symptoms: {} };
+    await save(profile);
+    return profile;
+  }
+
+  async function save(profile) {
     await mkdir(profilesDirectory, { recursive: true });
     const temporary = join(profilesDirectory, `.${profile.id}.tmp`);
     const target = join(profilesDirectory, `${profile.id}.json`);
@@ -53,8 +51,7 @@ export function createProfileStore(profilesDirectory) {
     } finally {
       await rm(temporary, { force: true });
     }
-    return profile;
   }
 
-  return { load, list, create };
+  return { load, list, create, save };
 }

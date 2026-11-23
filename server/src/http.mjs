@@ -1,4 +1,5 @@
 import { createServer } from 'node:http';
+import { loadCatalog } from './catalog.mjs';
 import { createProfileStore, ProfileError } from './profiles.mjs';
 
 export function createApp({ profilesDirectory }) {
@@ -10,6 +11,7 @@ export function createApp({ profilesDirectory }) {
     };
     try {
       const path = new URL(request.url, 'http://localhost').pathname;
+      if (request.method === 'GET' && path === '/api/catalog') return json(200, await loadCatalog());
       if (request.method === 'GET' && path === '/api/profiles') return json(200, { profiles: await store.list() });
       if (request.method === 'POST' && path === '/api/profiles') {
         request.setEncoding('utf8');
