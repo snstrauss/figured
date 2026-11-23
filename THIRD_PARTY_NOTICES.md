@@ -1,6 +1,6 @@
 # Third-party notices
 
-`public/orbit.svg` is the [Orbit icon from Lucide](https://lucide.dev/icons/orbit), with its stroke color set for Figured.
+The UI uses the [Orbit icon from Lucide](https://lucide.dev/icons/orbit) through the `lucide-react` package. `client/public/orbit.svg` is used only as the browser favicon.
 
 ## ISC License
 

@@ -1,0 +1,4 @@
+/data/profiles/
+node_modules/
+/client/dist/
+.DS_Store
