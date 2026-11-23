@@ -1,0 +1,305 @@
+{
+  "categories": {},
+  "symptoms": {
+    "symptom-001": {
+      "name": "Task Paralysis"
+    },
+    "symptom-002": {
+      "name": "Task Initiation Difficulty"
+    },
+    "symptom-003": {
+      "name": "Procrastination"
+    },
+    "symptom-004": {
+      "name": "Task Completion Difficulty"
+    },
+    "symptom-005": {
+      "name": "Executive Dysfunction"
+    },
+    "symptom-006": {
+      "name": "Task Switching Difficulty"
+    },
+    "symptom-007": {
+      "name": "Side Questing"
+    },
+    "symptom-008": {
+      "name": "Perfectionism"
+    },
+    "symptom-009": {
+      "name": "Overplanning"
+    },
+    "symptom-010": {
+      "name": "Intention–Action Gap"
+    },
+    "symptom-011": {
+      "name": "Difficulty With Self-Directed Tasks"
+    },
+    "symptom-012": {
+      "name": "Need for Purpose"
+    },
+    "symptom-013": {
+      "name": "Resistance to Prescribed Methods"
+    },
+    "symptom-014": {
+      "name": "Difficulty Prioritizing"
+    },
+    "symptom-015": {
+      "name": "Commitment Difficulty"
+    },
+    "symptom-016": {
+      "name": "Hyperfocus"
+    },
+    "symptom-017": {
+      "name": "Hyperfixation"
+    },
+    "symptom-018": {
+      "name": "Interest-Based Attention"
+    },
+    "symptom-019": {
+      "name": "Chronic Boredom"
+    },
+    "symptom-020": {
+      "name": "Stimulation Seeking"
+    },
+    "symptom-021": {
+      "name": "Understimulation"
+    },
+    "symptom-022": {
+      "name": "Overstimulation"
+    },
+    "symptom-023": {
+      "name": "Distractibility"
+    },
+    "symptom-024": {
+      "name": "Mind Wandering"
+    },
+    "symptom-025": {
+      "name": "Careless Mistakes"
+    },
+    "symptom-026": {
+      "name": "Interruption Sensitivity"
+    },
+    "symptom-027": {
+      "name": "Mental Restlessness"
+    },
+    "symptom-028": {
+      "name": "Racing Thoughts"
+    },
+    "symptom-029": {
+      "name": "Constant Internal Music"
+    },
+    "symptom-030": {
+      "name": "Rumination"
+    },
+    "symptom-031": {
+      "name": "Time Blindness"
+    },
+    "symptom-032": {
+      "name": "Time Optimism"
+    },
+    "symptom-033": {
+      "name": "Time Overestimation"
+    },
+    "symptom-034": {
+      "name": "Waiting Mode"
+    },
+    "symptom-035": {
+      "name": "Chronic Lateness"
+    },
+    "symptom-036": {
+      "name": "Time Anxiety"
+    },
+    "symptom-037": {
+      "name": "Out of Sight, Out of Mind"
+    },
+    "symptom-038": {
+      "name": "Working Memory Difficulties"
+    },
+    "symptom-039": {
+      "name": "Autobiographical Memory Gaps"
+    },
+    "symptom-040": {
+      "name": "Forgetting Intentions"
+    },
+    "symptom-041": {
+      "name": "Losing Track of Relationships"
+    },
+    "symptom-042": {
+      "name": "Habituation to Reminders"
+    },
+    "symptom-043": {
+      "name": "Emotional Dysregulation"
+    },
+    "symptom-044": {
+      "name": "Rejection Sensitivity / RSD"
+    },
+    "symptom-045": {
+      "name": "Emotional Overwhelm"
+    },
+    "symptom-046": {
+      "name": "Emotional Meltdowns"
+    },
+    "symptom-047": {
+      "name": "Sudden Anger"
+    },
+    "symptom-048": {
+      "name": "Justice Sensitivity"
+    },
+    "symptom-049": {
+      "name": "Excessive Empathy"
+    },
+    "symptom-050": {
+      "name": "Low Self-Esteem"
+    },
+    "symptom-051": {
+      "name": "Achievement Disconnect"
+    },
+    "symptom-052": {
+      "name": "Chronic Guilt"
+    },
+    "symptom-053": {
+      "name": "Emotional Exhaustion"
+    },
+    "symptom-054": {
+      "name": "Persistent Hypervigilance"
+    },
+    "symptom-055": {
+      "name": "Overexplaining"
+    },
+    "symptom-056": {
+      "name": "Defensiveness"
+    },
+    "symptom-057": {
+      "name": "Difficulty Maintaining Friendships"
+    },
+    "symptom-058": {
+      "name": "Not Missing People"
+    },
+    "symptom-059": {
+      "name": "Social Overwhelm"
+    },
+    "symptom-060": {
+      "name": "Limerence"
+    },
+    "symptom-061": {
+      "name": "Interrupting Others"
+    },
+    "symptom-062": {
+      "name": "Finishing Others' Sentences"
+    },
+    "symptom-063": {
+      "name": "Impulsive Speech"
+    },
+    "symptom-064": {
+      "name": "Difficulty With Authority"
+    },
+    "symptom-065": {
+      "name": "Social Misunderstandings"
+    },
+    "symptom-066": {
+      "name": "Romantic Avoidance"
+    },
+    "symptom-067": {
+      "name": "Impulsivity"
+    },
+    "symptom-068": {
+      "name": "Risk Seeking"
+    },
+    "symptom-069": {
+      "name": "Substance Use Vulnerability"
+    },
+    "symptom-070": {
+      "name": "Self-Medication"
+    },
+    "symptom-071": {
+      "name": "Binge Eating"
+    },
+    "symptom-072": {
+      "name": "Food Fixation"
+    },
+    "symptom-073": {
+      "name": "Food Cravings"
+    },
+    "symptom-074": {
+      "name": "Persistent Food Noise"
+    },
+    "symptom-075": {
+      "name": "Hypersexuality"
+    },
+    "symptom-076": {
+      "name": "Delayed Sleep Phase"
+    },
+    "symptom-077": {
+      "name": "Revenge Bedtime Procrastination"
+    },
+    "symptom-078": {
+      "name": "Difficulty Falling Asleep"
+    },
+    "symptom-079": {
+      "name": "Sleep Dysregulation"
+    },
+    "symptom-080": {
+      "name": "Intrusive Sleep"
+    },
+    "symptom-081": {
+      "name": "Chronic Fatigue"
+    },
+    "symptom-082": {
+      "name": "Mental Fatigue"
+    },
+    "symptom-083": {
+      "name": "Energy Crashes"
+    },
+    "symptom-084": {
+      "name": "Paradoxical Stimulant Response"
+    },
+    "symptom-085": {
+      "name": "Sensory Sensitivity"
+    },
+    "symptom-086": {
+      "name": "Auditory Processing Difficulties"
+    },
+    "symptom-087": {
+      "name": "Clumsiness"
+    },
+    "symptom-088": {
+      "name": "Hypermobility"
+    },
+    "symptom-089": {
+      "name": "Dysgraphia"
+    },
+    "symptom-090": {
+      "name": "Face Recognition Difficulties"
+    },
+    "symptom-091": {
+      "name": "Physical Restlessness"
+    },
+    "symptom-092": {
+      "name": "Fidgeting"
+    },
+    "symptom-093": {
+      "name": "Ignoring Bodily Signals"
+    },
+    "symptom-094": {
+      "name": "Difficulty Stopping an Activity"
+    },
+    "symptom-095": {
+      "name": "Doom Piles"
+    },
+    "symptom-096": {
+      "name": "Organizational Overcompensation"
+    },
+    "symptom-097": {
+      "name": "Math Difficulties"
+    },
+    "symptom-098": {
+      "name": "Difficulty Adapting to Changes"
+    },
+    "symptom-099": {
+      "name": "Perimenopause-Related Symptom Worsening"
+    },
+    "symptom-100": {
+      "name": "Co-occurring Physical Conditions"
+    }
+  }
+}
