@@ -7,9 +7,9 @@
     "node": ">=22.12"
   },
   "scripts": {
-    "start": "node src/index.mjs",
-    "dev": "node --watch src/index.mjs",
-    "check": "node --check src/index.mjs && node --check src/http.mjs && node --check src/profiles.mjs",
+    "start": "node src/startServer.mjs",
+    "dev": "node --watch src/startServer.mjs",
+    "check": "node --check src/startServer.mjs && node --check src/http.mjs && node --check src/profiles.mjs",
     "test": "node --test"
   }
 }
