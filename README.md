@@ -77,7 +77,7 @@ Frontend code lives in `client/src/`: `App.tsx` owns the layout, `features/profi
 - [Base JSON data](data/symptoms-base.json)
 - [Starting symptom list](.scratch/symptoms-manager/adhd-reddit-symptoms-list-formatted.md)
 
-Base entry and category names reference the name dictionaries in [locales/he.json](locales/he.json) and [locales/en.json](locales/en.json). The original Markdown lists remain as reference material.
+The base JSON defines categories and their ordered symptom IDs. Symptom names and descriptions use translation keys derived from those IDs; the text lives in [locales/he.json](locales/he.json) and [locales/en.json](locales/en.json). The original Markdown lists remain as reference material.
 
 ## Logo
 

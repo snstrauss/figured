@@ -18,16 +18,9 @@ export interface Category {
   entryIds: string[];
 }
 
-export interface SymptomEntry {
-  id: string;
-  name: string;
-  generalDescription: string;
-
-}
-
 export interface NameDictionary {
   categories: Record<string, { name: string }>;
-  symptoms: Record<string, { name: string }>;
+  symptoms: Record<string, { name: string; generalDescription: string }>;
 }
 
 export interface ProfileSummary {
@@ -46,6 +39,5 @@ export interface Profile extends ProfileSummary {
 
 export interface Catalog {
   categories: Category[];
-  entries: SymptomEntry[];
   translations: Record<Language, NameDictionary>;
 }

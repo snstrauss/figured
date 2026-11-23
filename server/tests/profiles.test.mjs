@@ -44,14 +44,17 @@ test('a new profile stores only personal assessments and browses a shared transl
   assert.deepEqual(Object.keys(profile).sort(), ['id', 'name', 'symptoms']);
   const catalog = await (await request('/api/catalog')).json();
   assert.equal(catalog.categories.length, 9);
-  assert.equal(catalog.entries.length, 100);
+  const symptomIds = catalog.categories.flatMap((category) => category.entryIds);
+  assert.equal(symptomIds.length, 100);
   for (const language of ['he', 'en']) {
-    for (const entry of [...catalog.categories, ...catalog.entries]) {
-      const [group, id] = entry.name.split('.');
-      assert.ok(catalog.translations[language][group][id].name);
+    for (const category of catalog.categories) {
+      assert.ok(catalog.translations[language].categories[category.id].name);
+    }
+    for (const id of symptomIds) {
+      assert.ok(catalog.translations[language].symptoms[id].name);
+      assert.ok(catalog.translations[language].symptoms[id].generalDescription);
     }
   }
-  assert.ok(catalog.entries.every((entry) => !('impactRating' in entry) && !('personalExperience' in entry)));
 
   const listing = await (await request('/api/profiles')).json();
   assert.equal(listing.profiles.length, 1);

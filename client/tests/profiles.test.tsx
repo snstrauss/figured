@@ -22,28 +22,37 @@ const catalog: Catalog = {
       entryIds: ["symptom-001"],
     },
   ],
-  entries: [
-    {
-      id: "symptom-001",
-      name: "symptoms.symptom-001.name",
-      generalDescription: "",
-    },
-  ],
   translations: {
     he: {
       categories: { "category-01": { name: "תפקודים ניהוליים" } },
-      symptoms: { "symptom-001": { name: "שיתוק משימתי" } },
+      symptoms: {
+        "symptom-001": {
+          name: "שיתוק משימתי",
+          generalDescription:
+            "רצון לעשות משהו, אבל חוסר יכולת ממשי להביא את עצמך להתחיל.",
+        },
+      },
     },
     en: {
       categories: { "category-01": { name: "Executive functions" } },
-      symptoms: { "symptom-001": { name: "Task Paralysis" } },
+      symptoms: {
+        "symptom-001": {
+          name: "Task Paralysis",
+          generalDescription:
+            "Wanting to do something but feeling unable to make yourself start.",
+        },
+      },
     },
   },
 };
 
-function mockApi(handler: (path: string, options?: RequestInit) => Promise<Response>) {
+function mockApi(
+  handler: (path: string, options?: RequestInit) => Promise<Response>,
+) {
   vi.stubGlobal("fetch", (path: string, options?: RequestInit) =>
-    path === "/api/catalog" ? Promise.resolve(Response.json(catalog)) : handler(path, options),
+    path === "/api/catalog"
+      ? Promise.resolve(Response.json(catalog))
+      : handler(path, options),
   );
 }
 
@@ -192,9 +201,7 @@ test("submission disables controls and reopening clears the draft and error", as
 
 test("language switch updates the app, open dialog, and document direction", async () => {
   const user = userEvent.setup();
-  mockApi(
-    vi.fn(async () => Response.json({ profiles: [] })),
-  );
+  mockApi(vi.fn(async () => Response.json({ profiles: [] })));
   render(
     <LanguageProvider>
       <App />

@@ -5,9 +5,11 @@ import { CategorySection } from "./CategorySection";
 
 type ProfileCategoriesProps = { profile: Profile; catalog: Catalog };
 
-export function ProfileCategories({ profile, catalog }: ProfileCategoriesProps) {
+export function ProfileCategories({
+  profile,
+  catalog,
+}: ProfileCategoriesProps) {
   const { t } = useTranslation();
-  const entries = new Map(catalog.entries.map((entry) => [entry.id, entry]));
   return (
     <section
       aria-label={t("workspace.categoriesLabel")}
@@ -19,8 +21,6 @@ export function ProfileCategories({ profile, catalog }: ProfileCategoriesProps) 
           key={category.id}
           profile={profile}
           category={category}
-          entries={category.entryIds
-            .map((id) => entries.get(id)!)}
         />
       ))}
       {!catalog.categories.length && (

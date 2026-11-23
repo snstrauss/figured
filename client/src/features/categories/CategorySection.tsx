@@ -1,11 +1,6 @@
 import { cva } from "class-variance-authority";
 import { Translated } from "../../shared/Text";
-import type {
-  Category,
-  ColorKey,
-  Profile,
-  SymptomEntry,
-} from "../../shared/profile";
+import type { Category, ColorKey, Profile } from "../../shared/profile";
 import { SymptomRow } from "../symptoms/SymptomRow";
 
 const categoryVariants = cva(
@@ -30,21 +25,13 @@ const categoryVariants = cva(
 type CategorySectionProps = {
   profile: Profile;
   category: Category;
-  entries: SymptomEntry[];
 };
 
-export function CategorySection({
-  profile,
-  category,
-  entries,
-}: CategorySectionProps) {
+export function CategorySection({ profile, category }: CategorySectionProps) {
   return (
     <details className={categoryVariants({ colorKey: category.colorKey })}>
-      <CategoryHeading
-        category={category}
-        count={entries.length}
-      />
-      <CategoryEntries profile={profile} entries={entries} />
+      <CategoryHeading category={category} count={category.entryIds.length} />
+      <CategoryEntries profile={profile} entryIds={category.entryIds} />
     </details>
   );
 }
@@ -77,15 +64,19 @@ function CategoryHeading({ category, count }: CategoryHeadingProps) {
   );
 }
 
-type CategoryEntriesProps = { profile: Profile; entries: SymptomEntry[] };
+type CategoryEntriesProps = { profile: Profile; entryIds: string[] };
 
-function CategoryEntries({ profile, entries }: CategoryEntriesProps) {
+function CategoryEntries({ profile, entryIds }: CategoryEntriesProps) {
   return (
     <div className="bg-white px-4 sm:px-6">
-      {entries.length ? (
+      {entryIds.length ? (
         <ul>
-          {entries.map((entry) => (
-            <SymptomRow key={entry.id} profile={profile} entry={entry} />
+          {entryIds.map((symptomId) => (
+            <SymptomRow
+              key={symptomId}
+              profile={profile}
+              symptomId={symptomId}
+            />
           ))}
         </ul>
       ) : (

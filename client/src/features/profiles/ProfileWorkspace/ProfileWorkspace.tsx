@@ -15,7 +15,10 @@ function ProfileWorkspaceHeader({ profile, catalog }: ProfileWorkspaceProps) {
         <Translated
           i18nKey="workspace.summary"
           values={{
-            entries: catalog.entries.length,
+            entries: catalog.categories.reduce(
+              (total, category) => total + category.entryIds.length,
+              0,
+            ),
             categories: catalog.categories.length,
           }}
         />

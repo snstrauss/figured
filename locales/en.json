@@ -30,304 +30,404 @@
   },
   "symptoms": {
     "symptom-001": {
-      "name": "Task Paralysis"
+      "name": "Task Paralysis",
+      "generalDescription": "Wanting to do something but feeling unable to make yourself start."
     },
     "symptom-002": {
-      "name": "Task Initiation Difficulty"
+      "name": "Task Initiation Difficulty",
+      "generalDescription": "Moving from a decision to action takes a disproportionate amount of effort."
     },
     "symptom-003": {
-      "name": "Procrastination"
+      "name": "Procrastination",
+      "generalDescription": "Putting off tasks even when it is clear that the delay will cause problems."
     },
     "symptom-004": {
-      "name": "Task Completion Difficulty"
+      "name": "Task Completion Difficulty",
+      "generalDescription": "Projects reach 80% or 99% completion and simply stay there."
     },
     "symptom-005": {
-      "name": "Executive Dysfunction"
+      "name": "Executive Dysfunction",
+      "generalDescription": "Difficulty planning, prioritizing, organizing and carrying out actions."
     },
     "symptom-006": {
-      "name": "Task Switching Difficulty"
+      "name": "Task Switching Difficulty",
+      "generalDescription": "Difficulty stopping one activity and starting another."
     },
     "symptom-007": {
-      "name": "Side Questing"
+      "name": "Side Questing",
+      "generalDescription": "Starting one thing and finding yourself doing something completely different."
     },
     "symptom-008": {
-      "name": "Perfectionism"
+      "name": "Perfectionism",
+      "generalDescription": "Being unable to move forward because something still does not feel good enough."
     },
     "symptom-009": {
-      "name": "Overplanning"
+      "name": "Overplanning",
+      "generalDescription": "Spending so much time planning that you never get to doing."
     },
     "symptom-010": {
-      "name": "Intention–Action Gap"
+      "name": "Intention–Action Gap",
+      "generalDescription": "Planning lots of things in the evening for the next day but not actually doing them."
     },
     "symptom-011": {
-      "name": "Difficulty With Self-Directed Tasks"
+      "name": "Difficulty With Self-Directed Tasks",
+      "generalDescription": "Finding it easier to act when someone else asks than when you have to take the initiative yourself."
     },
     "symptom-012": {
-      "name": "Need for Purpose"
+      "name": "Need for Purpose",
+      "generalDescription": "Finding it hard to follow or remember instructions without understanding the reasoning behind them."
     },
     "symptom-013": {
-      "name": "Resistance to Prescribed Methods"
+      "name": "Resistance to Prescribed Methods",
+      "generalDescription": "Being willing to do a task but resisting being told exactly how to do it."
     },
     "symptom-014": {
-      "name": "Difficulty Prioritizing"
+      "name": "Difficulty Prioritizing",
+      "generalDescription": "Important tasks do not necessarily feel urgent or appealing."
     },
     "symptom-015": {
-      "name": "Commitment Difficulty"
+      "name": "Commitment Difficulty",
+      "generalDescription": "Difficulty committing to decisions, projects or long-term plans."
     },
     "symptom-016": {
-      "name": "Hyperfocus"
+      "name": "Hyperfocus",
+      "generalDescription": "Becoming completely absorbed in an interesting activity and losing awareness of your surroundings."
     },
     "symptom-017": {
-      "name": "Hyperfixation"
+      "name": "Hyperfixation",
+      "generalDescription": "An intense preoccupation with a particular subject, sometimes briefly before moving on to another."
     },
     "symptom-018": {
-      "name": "Interest-Based Attention"
+      "name": "Interest-Based Attention",
+      "generalDescription": "Being able to concentrate for hours on something interesting but barely at all on something that is not."
     },
     "symptom-019": {
-      "name": "Chronic Boredom"
+      "name": "Chronic Boredom",
+      "generalDescription": "Feeling that things become boring very quickly."
     },
     "symptom-020": {
-      "name": "Stimulation Seeking"
+      "name": "Stimulation Seeking",
+      "generalDescription": "A need for novelty, interest, excitement or challenge."
     },
     "symptom-021": {
-      "name": "Understimulation"
+      "name": "Understimulation",
+      "generalDescription": "Significant discomfort when there is not enough interest or activity."
     },
     "symptom-022": {
-      "name": "Overstimulation"
+      "name": "Overstimulation",
+      "generalDescription": "Noise, people or surrounding activity create an overwhelming amount of input."
     },
     "symptom-023": {
-      "name": "Distractibility"
+      "name": "Distractibility",
+      "generalDescription": "Involuntarily shifting between thoughts and stimuli."
     },
     "symptom-024": {
-      "name": "Mind Wandering"
+      "name": "Mind Wandering",
+      "generalDescription": "Your mind drifts away from the current activity to other things."
     },
     "symptom-025": {
-      "name": "Careless Mistakes"
+      "name": "Careless Mistakes",
+      "generalDescription": "Understanding the task fully but making small mistakes, such as using the wrong sign in a calculation."
     },
     "symptom-026": {
-      "name": "Interruption Sensitivity"
+      "name": "Interruption Sensitivity",
+      "generalDescription": "A brief interruption breaks your train of thought and makes it hard to return to it."
     },
     "symptom-027": {
-      "name": "Mental Restlessness"
+      "name": "Mental Restlessness",
+      "generalDescription": "Feeling that your mind never stops working."
     },
     "symptom-028": {
-      "name": "Racing Thoughts"
+      "name": "Racing Thoughts",
+      "generalDescription": "A rapid stream of thoughts that is hard to slow down."
     },
     "symptom-029": {
-      "name": "Constant Internal Music"
+      "name": "Constant Internal Music",
+      "generalDescription": "Songs play in your head repeatedly without a conscious choice."
     },
     "symptom-030": {
-      "name": "Rumination"
+      "name": "Rumination",
+      "generalDescription": "Repeatedly returning to past events, mistakes or conversations."
     },
     "symptom-031": {
-      "name": "Time Blindness"
+      "name": "Time Blindness",
+      "generalDescription": "Difficulty sensing how much time has passed or how much time remains."
     },
     "symptom-032": {
-      "name": "Time Optimism"
+      "name": "Time Optimism",
+      "generalDescription": "Overestimating how much you can get done in a given amount of time."
     },
     "symptom-033": {
-      "name": "Time Overestimation"
+      "name": "Time Overestimation",
+      "generalDescription": "Assuming a task will take hours and avoiding starting it as a result."
     },
     "symptom-034": {
-      "name": "Waiting Mode"
+      "name": "Waiting Mode",
+      "generalDescription": "One appointment in the middle of the day makes it feel impossible to do anything beforehand."
     },
     "symptom-035": {
-      "name": "Chronic Lateness"
+      "name": "Chronic Lateness",
+      "generalDescription": "Arriving late even when you prepare in advance."
     },
     "symptom-036": {
-      "name": "Time Anxiety"
+      "name": "Time Anxiety",
+      "generalDescription": "An intense fear of being late, leading to arriving very early or avoiding plans."
     },
     "symptom-037": {
-      "name": "Out of Sight, Out of Mind"
+      "name": "Out of Sight, Out of Mind",
+      "generalDescription": "Things you cannot see effectively stop existing in your day-to-day awareness."
     },
     "symptom-038": {
-      "name": "Working Memory Difficulties"
+      "name": "Working Memory Difficulties",
+      "generalDescription": "Difficulty keeping instructions, steps or temporary information in mind."
     },
     "symptom-039": {
-      "name": "Autobiographical Memory Gaps"
+      "name": "Autobiographical Memory Gaps",
+      "generalDescription": "Whole periods or events in your life are hard to remember."
     },
     "symptom-040": {
-      "name": "Forgetting Intentions"
+      "name": "Forgetting Intentions",
+      "generalDescription": "Remembering that you meant to do something only after the opportunity has passed."
     },
     "symptom-041": {
-      "name": "Losing Track of Relationships"
+      "name": "Losing Track of Relationships",
+      "generalDescription": "Not noticing how long it has been since you last spoke with someone."
     },
     "symptom-042": {
-      "name": "Habituation to Reminders"
+      "name": "Habituation to Reminders",
+      "generalDescription": "An object in plain sight becomes part of the background and you stop noticing it."
     },
     "symptom-043": {
-      "name": "Emotional Dysregulation"
+      "name": "Emotional Dysregulation",
+      "generalDescription": "Emotions arise with an intensity that is hard to manage."
     },
     "symptom-044": {
-      "name": "Rejection Sensitivity / RSD"
+      "name": "Rejection Sensitivity / RSD",
+      "generalDescription": "A strong, distressing emotional response to rejection, criticism or feeling that someone is disappointed in you."
     },
     "symptom-045": {
-      "name": "Emotional Overwhelm"
+      "name": "Emotional Overwhelm",
+      "generalDescription": "Relatively small things cause a significant feeling of overwhelm."
     },
     "symptom-046": {
-      "name": "Emotional Meltdowns"
+      "name": "Emotional Meltdowns",
+      "generalDescription": "Moments when your ability to cope breaks down."
     },
     "symptom-047": {
-      "name": "Sudden Anger"
+      "name": "Sudden Anger",
+      "generalDescription": "Moving very quickly from calm to intense anger."
     },
     "symptom-048": {
-      "name": "Justice Sensitivity"
+      "name": "Justice Sensitivity",
+      "generalDescription": "Difficulty letting go of the feeling that something is unfair."
     },
     "symptom-049": {
-      "name": "Excessive Empathy"
+      "name": "Excessive Empathy",
+      "generalDescription": "Strongly sharing in other people's emotional distress."
     },
     "symptom-050": {
-      "name": "Low Self-Esteem"
+      "name": "Low Self-Esteem",
+      "generalDescription": "Seeing yourself as lazy, a failure or incapable."
     },
     "symptom-051": {
-      "name": "Achievement Disconnect"
+      "name": "Achievement Disconnect",
+      "generalDescription": "Successes and compliments do not bring a feeling of satisfaction or pride."
     },
     "symptom-052": {
-      "name": "Chronic Guilt"
+      "name": "Chronic Guilt",
+      "generalDescription": "Feeling guilty about things you have not done, even when you really want to do them."
     },
     "symptom-053": {
-      "name": "Emotional Exhaustion"
+      "name": "Emotional Exhaustion",
+      "generalDescription": "Feeling drained by the effort of functioning and coping."
     },
     "symptom-054": {
-      "name": "Persistent Hypervigilance"
+      "name": "Persistent Hypervigilance",
+      "generalDescription": "A lasting sense of tension or an internal state of emergency."
     },
     "symptom-055": {
-      "name": "Overexplaining"
+      "name": "Overexplaining",
+      "generalDescription": "A need to explain and justify your behavior or decisions in detail."
     },
     "symptom-056": {
-      "name": "Defensiveness"
+      "name": "Defensiveness",
+      "generalDescription": "Experiencing a reminder or request for clarification as personal criticism."
     },
     "symptom-057": {
-      "name": "Difficulty Maintaining Friendships"
+      "name": "Difficulty Maintaining Friendships",
+      "generalDescription": "Friendships fade because you forget to reach out or catch up."
     },
     "symptom-058": {
-      "name": "Not Missing People"
+      "name": "Not Missing People",
+      "generalDescription": "Not necessarily missing people even when they are important in your life."
     },
     "symptom-059": {
-      "name": "Social Overwhelm"
+      "name": "Social Overwhelm",
+      "generalDescription": "Being around people can feel exhausting despite wanting connection."
     },
     "symptom-060": {
-      "name": "Limerence"
+      "name": "Limerence",
+      "generalDescription": "An intense preoccupation with a particular person and your thoughts and feelings about them."
     },
     "symptom-061": {
-      "name": "Interrupting Others"
+      "name": "Interrupting Others",
+      "generalDescription": "Feeling a need to say something immediately before you forget it."
     },
     "symptom-062": {
-      "name": "Finishing Others' Sentences"
+      "name": "Finishing Others' Sentences",
+      "generalDescription": "Finding it hard to wait for another person to finish speaking."
     },
     "symptom-063": {
-      "name": "Impulsive Speech"
+      "name": "Impulsive Speech",
+      "generalDescription": "Saying things without thinking enough about how they will be received."
     },
     "symptom-064": {
-      "name": "Difficulty With Authority"
+      "name": "Difficulty With Authority",
+      "generalDescription": "Clashing with managers or authority figures when asking for explanations or questioning instructions."
     },
     "symptom-065": {
-      "name": "Social Misunderstandings"
+      "name": "Social Misunderstandings",
+      "generalDescription": "Innocent questions or behavior are interpreted as defiance, rudeness or disrespect."
     },
     "symptom-066": {
-      "name": "Romantic Avoidance"
+      "name": "Romantic Avoidance",
+      "generalDescription": "Avoiding the possibility of a romantic relationship out of fear of rejection."
     },
     "symptom-067": {
-      "name": "Impulsivity"
+      "name": "Impulsivity",
+      "generalDescription": "Acting before thinking about the consequences."
     },
     "symptom-068": {
-      "name": "Risk Seeking"
+      "name": "Risk Seeking",
+      "generalDescription": "A tendency toward gambling, thrills or risky decisions."
     },
     "symptom-069": {
-      "name": "Substance Use Vulnerability"
+      "name": "Substance Use Vulnerability",
+      "generalDescription": "An increased tendency to develop substance use problems and addiction."
     },
     "symptom-070": {
-      "name": "Self-Medication"
+      "name": "Self-Medication",
+      "generalDescription": "Using cannabis, alcohol or other substances to relax or slow down thoughts."
     },
     "symptom-071": {
-      "name": "Binge Eating"
+      "name": "Binge Eating",
+      "generalDescription": "Eating large amounts, sometimes to cope with boredom or emotions."
     },
     "symptom-072": {
-      "name": "Food Fixation"
+      "name": "Food Fixation",
+      "generalDescription": "Eating the same food for days or weeks and then switching to something else."
     },
     "symptom-073": {
-      "name": "Food Cravings"
+      "name": "Food Cravings",
+      "generalDescription": "Intense cravings for particular foods."
     },
     "symptom-074": {
-      "name": "Persistent Food Noise"
+      "name": "Persistent Food Noise",
+      "generalDescription": "An ongoing mental preoccupation with eating."
     },
     "symptom-075": {
-      "name": "Hypersexuality"
+      "name": "Hypersexuality",
+      "generalDescription": "Intense sexual desire or preoccupation with sex that sometimes leads to risky behavior."
     },
     "symptom-076": {
-      "name": "Delayed Sleep Phase"
+      "name": "Delayed Sleep Phase",
+      "generalDescription": "A natural tendency to fall asleep and wake up late."
     },
     "symptom-077": {
-      "name": "Revenge Bedtime Procrastination"
+      "name": "Revenge Bedtime Procrastination",
+      "generalDescription": "Staying awake to gain personal time, even when tired."
     },
     "symptom-078": {
-      "name": "Difficulty Falling Asleep"
+      "name": "Difficulty Falling Asleep",
+      "generalDescription": "Thoughts do not settle down as bedtime approaches."
     },
     "symptom-079": {
-      "name": "Sleep Dysregulation"
+      "name": "Sleep Dysregulation",
+      "generalDescription": "Difficulty maintaining regular sleep times or sleeping through the night."
     },
     "symptom-080": {
-      "name": "Intrusive Sleep"
+      "name": "Intrusive Sleep",
+      "generalDescription": "Sudden sleepiness, especially during activities that are not sufficiently interesting."
     },
     "symptom-081": {
-      "name": "Chronic Fatigue"
+      "name": "Chronic Fatigue",
+      "generalDescription": "Persistent exhaustion, even without significant physical effort."
     },
     "symptom-082": {
-      "name": "Mental Fatigue"
+      "name": "Mental Fatigue",
+      "generalDescription": "The effort of sustaining attention leaves you feeling drained."
     },
     "symptom-083": {
-      "name": "Energy Crashes"
+      "name": "Energy Crashes",
+      "generalDescription": "Shifting from high energy to exhaustion later in the day."
     },
     "symptom-084": {
-      "name": "Paradoxical Stimulant Response"
+      "name": "Paradoxical Stimulant Response",
+      "generalDescription": "Reports of calmness or sleepiness after caffeine or stimulant medication. This response is not unique to ADHD and is not diagnostic of it."
     },
     "symptom-085": {
-      "name": "Sensory Sensitivity"
+      "name": "Sensory Sensitivity",
+      "generalDescription": "High sensitivity to noise, touch or other sensory input."
     },
     "symptom-086": {
-      "name": "Auditory Processing Difficulties"
+      "name": "Auditory Processing Difficulties",
+      "generalDescription": "Hearing the words but taking time to understand their meaning."
     },
     "symptom-087": {
-      "name": "Clumsiness"
+      "name": "Clumsiness",
+      "generalDescription": "Bumping into objects, dropping things and not noticing your surroundings."
     },
     "symptom-088": {
-      "name": "Hypermobility"
+      "name": "Hypermobility",
+      "generalDescription": "A greater-than-usual range of joint movement, mentioned as a possible associated condition."
     },
     "symptom-089": {
-      "name": "Dysgraphia"
+      "name": "Dysgraphia",
+      "generalDescription": "Difficulty with handwriting, including writing that is hard to read."
     },
     "symptom-090": {
-      "name": "Face Recognition Difficulties"
+      "name": "Face Recognition Difficulties",
+      "generalDescription": "Difficulty recognizing people by their faces."
     },
     "symptom-091": {
-      "name": "Physical Restlessness"
+      "name": "Physical Restlessness",
+      "generalDescription": "Difficulty standing still or remaining without movement."
     },
     "symptom-092": {
-      "name": "Fidgeting"
+      "name": "Fidgeting",
+      "generalDescription": "Moving your hands, feet or objects while sitting."
     },
     "symptom-093": {
-      "name": "Ignoring Bodily Signals"
+      "name": "Ignoring Bodily Signals",
+      "generalDescription": "Putting off going to the bathroom or ignoring physical needs while engaged in an activity."
     },
     "symptom-094": {
-      "name": "Difficulty Stopping an Activity"
+      "name": "Difficulty Stopping an Activity",
+      "generalDescription": "Continuing an interesting activity despite tiredness, pain or needing a break."
     },
     "symptom-095": {
-      "name": "Doom Piles"
+      "name": "Doom Piles",
+      "generalDescription": "Things pile up because they have no regular place or you never finish dealing with them."
     },
     "symptom-096": {
-      "name": "Organizational Overcompensation"
+      "name": "Organizational Overcompensation",
+      "generalDescription": "Relying heavily on lists, reminders and routines to avoid forgetting things."
     },
     "symptom-097": {
-      "name": "Math Difficulties"
+      "name": "Math Difficulties",
+      "generalDescription": "Difficulty with calculations or understanding mathematical material. This is not a symptom unique to ADHD."
     },
     "symptom-098": {
-      "name": "Difficulty Adapting to Changes"
+      "name": "Difficulty Adapting to Changes",
+      "generalDescription": "Unexpected changes can cause overwhelm."
     },
     "symptom-099": {
-      "name": "Perimenopause-Related Symptom Worsening"
+      "name": "Perimenopause-Related Symptom Worsening",
+      "generalDescription": "Hormonal changes that may worsen attention and regulation difficulties in some women."
     },
     "symptom-100": {
-      "name": "Co-occurring Physical Conditions"
+      "name": "Co-occurring Physical Conditions",
+      "generalDescription": "Mentions of POTS, connective tissue problems and inflammatory conditions; these are not ADHD symptoms in themselves."
     }
   }
 }

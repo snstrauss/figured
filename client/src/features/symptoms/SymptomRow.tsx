@@ -1,25 +1,46 @@
 import { Translated } from "../../shared/Text";
-import type { Profile, SymptomEntry } from "../../shared/profile";
+import type { Profile } from "../../shared/profile";
+
+const symptomTranslationKeys = (symptomId: string) => ({
+  name: `symptoms.${symptomId}.name`,
+  generalDescription: `symptoms.${symptomId}.generalDescription`,
+});
 
 type SymptomRowProps = {
   profile: Profile;
-  entry: SymptomEntry;
+  symptomId: string;
 };
 
-export function SymptomRow({ profile, entry }: SymptomRowProps) {
+export function SymptomRow({ profile, symptomId }: SymptomRowProps) {
   return (
-    <li className="flex items-center gap-2.5 border-b border-slate-100 py-3.5 last:border-0 sm:gap-4">
-      <SymptomName entry={entry} />
-      <SymptomImpactRating rating={profile.symptoms[entry.id]?.impactRating ?? null} />
+    <li className="flex items-start gap-2.5 border-b border-slate-100 py-3.5 last:border-0 sm:gap-4">
+      <SymptomSummary symptomId={symptomId} />
+      <SymptomImpactRating
+        rating={profile.symptoms[symptomId]?.impactRating ?? null}
+      />
     </li>
   );
 }
 
-type SymptomNameProps = { entry: SymptomEntry };
+type SymptomSummaryProps = { symptomId: string };
 
-function SymptomName({ entry }: SymptomNameProps) {
+function SymptomSummary({ symptomId }: SymptomSummaryProps) {
+  const keys = symptomTranslationKeys(symptomId);
   return (
-    <Translated namespace="catalog" i18nKey={entry.name} className="min-w-0 flex-1 font-medium" />
+    <div className="min-w-0 flex-1 space-y-1">
+      <Translated
+        as="p"
+        namespace="catalog"
+        i18nKey={keys.name}
+        className="font-medium"
+      />
+      <Translated
+        as="p"
+        namespace="catalog"
+        i18nKey={keys.generalDescription}
+        className="text-sm text-slate-500"
+      />
+    </div>
   );
 }
 
