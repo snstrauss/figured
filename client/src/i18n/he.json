@@ -3,7 +3,8 @@
     "name": "Figured",
     "tagline": "מרחב אישי להתבוננות",
     "logout": "יציאה מהפרופיל",
-    "loading": "טוען את הפרופילים…"
+    "loading": "טוען את הפרופילים…",
+    "switchLanguage": "English"
   },
   "common": {
     "retry": "לנסות שוב",

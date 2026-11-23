@@ -1,0 +1,50 @@
+{
+  "app": {
+    "name": "Figured",
+    "tagline": "A personal space for reflection",
+    "logout": "Leave profile",
+    "loading": "Loading profiles…",
+    "switchLanguage": "עברית"
+  },
+  "common": {
+    "retry": "Try again",
+    "cancel": "Cancel"
+  },
+  "profiles": {
+    "open": "Open profile {{name}}",
+    "continue": "Continue where you left off",
+    "eyebrow": "Explore. Understand. Make sense.",
+    "title": "A little more clarity.",
+    "description": "A space to explore patterns, discover what affects you, and put your experience into words.",
+    "listTitle": "Your profiles",
+    "create": "+ New profile",
+    "emptyTitle": "Every beginning is a chance to get to know yourself",
+    "emptyDescription": "Creating a profile starts a new list of 100 topics across nine categories.",
+    "footer": "Every profile starts with the same list and grows in its own way."
+  },
+  "newProfile": {
+    "eyebrow": "A place to begin",
+    "title": "New profile",
+    "description": "A fresh list, with room for your experiences and insights.",
+    "name": "Profile name",
+    "submit": "Create profile"
+  },
+  "workspace": {
+    "eyebrow": "Your space",
+    "summary": "{{entries}} topics · {{categories}} categories",
+    "categoriesLabel": "Categories and topics",
+    "empty": "This profile has no categories yet.",
+    "emptyCategory": "This category has no topics yet.",
+    "entryCount_one": "{{count}} topic",
+    "entryCount_other": "{{count}} topics",
+    "unrated": "Not rated yet",
+    "impact": "Impact: {{rating}}"
+  },
+  "errors": {
+    "invalid_name": "Enter a profile name.",
+    "invalid_profile": "A profile file could not be read. The file was not changed. Check it and try again.",
+    "not_found": "Profile not found. Return to the profile list and try again.",
+    "storage_error": "Profile files could not be accessed. Check the folder and its permissions, then try again.",
+    "unknown": "The action could not be completed. Please try again."
+  }
+}

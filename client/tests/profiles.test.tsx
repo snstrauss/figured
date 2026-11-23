@@ -1,3 +1,5 @@
+import { LanguageProvider } from "../src/i18n/LanguageProvider";
+import i18n from "../src/i18n/i18n";
 import { beforeEach, afterEach, expect, test, vi } from "vitest";
 import { act, cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -40,7 +42,8 @@ const profile: Profile = {
   },
 };
 
-beforeEach(() => {
+beforeEach(async () => {
+  await i18n.changeLanguage("he");
   useProfilesStore.setState(useProfilesStore.getInitialState(), true);
 });
 
@@ -61,7 +64,11 @@ test("a listed profile opens its category tree and logout returns to the chooser
       ),
     ),
   );
-  render(<App />);
+  render(
+    <LanguageProvider>
+      <App />
+    </LanguageProvider>,
+  );
   await user.click(
     await screen.findByRole("button", { name: "פתיחת הפרופיל אישי" }),
   );
@@ -96,7 +103,11 @@ test("a failed creation keeps the draft and a retry opens the created profile", 
       return Response.json(profile, { status: 201 });
     }),
   );
-  render(<App />);
+  render(
+    <LanguageProvider>
+      <App />
+    </LanguageProvider>,
+  );
   await user.click(await screen.findByRole("button", { name: "+ פרופיל חדש" }));
   const dialog = screen.getByRole("dialog");
   const name = within(dialog).getByLabelText("שם הפרופיל");
@@ -126,7 +137,11 @@ test("submission disables controls and reopening clears the draft and error", as
     });
   });
   vi.stubGlobal("fetch", fetchMock);
-  render(<App />);
+  render(
+    <LanguageProvider>
+      <App />
+    </LanguageProvider>,
+  );
   await user.click(await screen.findByRole("button", { name: "+ פרופיל חדש" }));
   const dialog = screen.getByRole("dialog");
   const name = within(dialog).getByLabelText<HTMLInputElement>("שם הפרופיל");
@@ -167,4 +182,38 @@ test("submission disables controls and reopening clears the draft and error", as
     "",
   );
   expect(reopened.queryByRole("alert")).toBeNull();
+});
+
+test("language switch updates the app, open dialog, and document direction", async () => {
+  const user = userEvent.setup();
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () => Response.json({ profiles: [] })),
+  );
+  render(
+    <LanguageProvider>
+      <App />
+    </LanguageProvider>,
+  );
+  await user.click(await screen.findByRole("button", { name: "+ פרופיל חדש" }));
+  await user.type(screen.getByLabelText("שם הפרופיל"), "אישי");
+  await user.click(screen.getByRole("button", { name: "English" }));
+  expect(
+    await screen.findByRole("heading", { name: "Your profiles" }),
+  ).toBeTruthy();
+  expect(screen.getByRole("button", { name: "Create profile" })).toBeTruthy();
+  expect(screen.getByLabelText<HTMLInputElement>("Profile name").value).toBe(
+    "אישי",
+  );
+  expect(document.documentElement.lang).toBe("en");
+  expect(document.documentElement.dir).toBe("ltr");
+  await user.click(screen.getByRole("button", { name: "עברית" }));
+  expect(
+    await screen.findByRole("heading", { name: "הפרופילים שלך" }),
+  ).toBeTruthy();
+  expect(screen.getByLabelText<HTMLInputElement>("שם הפרופיל").value).toBe(
+    "אישי",
+  );
+  expect(document.documentElement.lang).toBe("he");
+  expect(document.documentElement.dir).toBe("rtl");
 });
