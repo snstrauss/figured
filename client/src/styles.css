@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  body {
+    @apply m-0 bg-slate-50 font-sans text-base leading-relaxed text-slate-800;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  button,
+  input {
+    font: inherit;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+  button:disabled {
+    @apply cursor-wait opacity-65;
+  }
+  :focus-visible {
+    @apply outline-3 outline-offset-4 outline-teal-600;
+  }
+}
+@layer components {
+  .eyebrow {
+    @apply mb-3 text-sm font-semibold text-teal-800;
+  }
+}

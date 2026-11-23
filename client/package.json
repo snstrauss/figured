@@ -15,11 +15,14 @@
     "format": "prettier --write src tests vite.config.ts vitest.config.ts tsconfig.json index.html package.json"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
     "i18next": "^27.2.5",
     "lucide-react": "^1.78.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-i18next": "^18.0.3"
+    "react-hook-form": "^7.92.0",
+    "react-i18next": "^18.0.3",
+    "zustand": "^5.1.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.5",

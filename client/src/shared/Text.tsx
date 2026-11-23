@@ -27,6 +27,11 @@ export function Text({
   );
 }
 
+type ProfileTextProps = Omit<TextProps, "values" | "count"> & {
+  profile: Profile;
+  language: Language;
+};
+
 // These names are editable profile content, stored in each profile's dictionary.
 export function ProfileText({
   profile,
@@ -34,10 +39,7 @@ export function ProfileText({
   i18nKey,
   as: Tag = "span",
   ...props
-}: Omit<TextProps, "values" | "count"> & {
-  profile: Profile;
-  language: Language;
-}) {
+}: ProfileTextProps) {
   return (
     <Tag
       {...props}
